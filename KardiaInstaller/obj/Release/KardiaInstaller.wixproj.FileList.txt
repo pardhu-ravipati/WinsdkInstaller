@@ -1,0 +1,7 @@
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\VC_redist.x64.exe
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\KardiaSampleApplication.exe
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\KardiaSampleApplication.wixpdb
+obj\Release\Bundle.wixobj
+obj\Release\KardiaInstaller.wixproj.BindContentsFileList.txt
+obj\Release\KardiaInstaller.wixproj.BindOutputsFileList.txt
+obj\Release\KardiaInstaller.wixproj.BindBuiltOutputsFileList.txt

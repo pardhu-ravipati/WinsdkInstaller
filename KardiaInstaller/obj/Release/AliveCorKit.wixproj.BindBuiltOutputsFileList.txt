@@ -1,0 +1,2 @@
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\AliveCorKit.exe
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\AliveCorKit.wixpdb

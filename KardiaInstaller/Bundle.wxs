@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Bundle Name="AliveCorKit SampleApp"
+          Version="1.0.0.0" 
+          Manufacturer="Kardia" 
+          UpgradeCode="d092a801-3217-4d22-aef9-228f23d2c275">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+		<Chain>
+			<!-- TODO: Define the list of chained packages. -->
+			<!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
+      <PackageGroupRef Id="VisualCFullPackage"/>
+		</Chain>
+	</Bundle>
+  <Fragment>
+      <!--checking for matlab 2012a installation-->
+     <Property Id="CPPRUNTIME2015X64" Secure="yes">
+        <!-- C++ 2015 -->
+        <RegistrySearch Id="mfc140x64_23026" Root="HKLM" Key="SOFTWARE\Classes\Installer\Dependencies\{e46eca4f-393b-40df-9f49-076faf788d83}" Type="raw" />
+        <RegistrySearch Id="mfc140x64_24215" Root="HKLM" Key="SOFTWARE\Classes\Installer\Dependencies\{d992c12e-cab2-426f-bde3-fb8c53950b0d}" Type="raw" />      
+
+        <!-- C++ 2017 -->
+        <RegistrySearch Id="mfc1416x64" Root="HKCR" Key="Installer\Dependencies\VC,redist.x64,amd64,14.16,bundle" Type="raw" />
+
+        <!-- C++ 2019 -->
+        <?foreach CPPRUNTIMEVERSIONPREFIX in 21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40?>
+          <RegistrySearch Id="mfc14$(var.CPPRUNTIMEVERSIONPREFIX)x64" Root="HKCR" Key="Installer\Dependencies\VC,redist.x64,amd64,14.$(var.CPPRUNTIMEVERSIONPREFIX),bundle" Type="raw" />
+        <?endforeach ?>
+      </Property>
+      <Condition Message="Microsoft Visual C++ 2015-2019 (x64) Redistributable missing">
+        <![CDATA[((REMOVE="ALL")) OR Installed]]>
+      </Condition>
+    <PackageGroup Id="VisualCFullPackage">
+     <ExePackage
+     Id="VisualC"
+     Cache="no"
+     Compressed="no"
+     PerMachine="yes"
+     Permanent="yes"
+     Vital="yes"
+     InstallCommand="/q"
+     SourceFile="../VC_redist.x64.exe"/>
+      
+      <MsiPackage After="VisualC" SourceFile="../Kardia-Phase3\KardiaBuild(Phase-3)/bin/Release/AliveCorKit.msi" Visible="no"
+                  DisplayInternalUI='yes'/>
+    </PackageGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,2 @@
+C:\AliveCor\WinSdk\VC_redist.x64.exe
+C:\AliveCor\WinSdk\Kardia-Phase1\KardiaBuild(Phase-1)\bin\Release\AliveCorKitLite.msi

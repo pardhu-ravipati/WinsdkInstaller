@@ -1,0 +1,3 @@
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\VC_redist.x64.exe
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\AliveCorKitLite.exe
+C:\AliveCor\WinSdk\KardiaInstaller\bin\Release\AliveCorKitLite.wixpdb
